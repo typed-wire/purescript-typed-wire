@@ -1,9 +1,6 @@
 module Data.TypedWire.Api where
 
-import Prelude
-import Data.Maybe
-import Data.Either
-import Data.Argonaut
+import Data.TypedWire.Prelude
 
 data ApiMethod
   = DELETE
