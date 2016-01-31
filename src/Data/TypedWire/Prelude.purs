@@ -2,6 +2,7 @@ module Data.TypedWire.Prelude
     ( module Prelude
     , module Control.Alt
     , module Control.Monad
+    , module Data.Either
     , module Data.Generic
     , module Data.Argonaut
     , module Data.Argonaut.Encode
