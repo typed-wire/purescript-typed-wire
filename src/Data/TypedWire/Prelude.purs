@@ -55,6 +55,12 @@ instance encodeAsBase64 :: EncodeJson AsBase64 where
 
 newtype DateTime = DateTime Date
 
+instance showDateTime :: Show DateTime where
+    show (DateTime d) = show d
+
+instance eqDateTime :: Eq DateTime where
+    eq (DateTime a) (DateTime b) = eq a b
+
 unDateTime :: DateTime -> Date
 unDateTime (DateTime d) = d
 
@@ -69,6 +75,12 @@ instance encodeDateTime :: EncodeJson DateTime where
     encodeJson = encodeJson <<< dateToISO <<< toJSDate <<< unDateTime
 
 newtype Day = Day Date
+
+instance showDay :: Show Day where
+    show (Day d) = show d
+
+instance eqDay :: Eq Day where
+    eq (Day a) (Day b) = eq a b
 
 dayRegex :: R.Regex
 dayRegex =
@@ -144,6 +156,13 @@ newtype TimeOfDay =
     , minute :: MinuteOfHour
     , second :: SecondOfMinute
     }
+
+instance eqTimeOfDay :: Eq TimeOfDay where
+    eq (TimeOfDay a) (TimeOfDay b) =
+        a.hour == b.hour && a.minute == b.minute && a.second == b.second
+
+instance showTimeOfDay :: Show TimeOfDay where
+    show a = "TimeOfDay (" ++ timeOfDayToString a ++ ")"
 
 timeOfDayRegex :: R.Regex
 timeOfDayRegex =
