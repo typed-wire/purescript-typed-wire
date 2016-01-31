@@ -30,7 +30,7 @@ type ApiRequest req =
     }
 
 type ApiResponse resp =
-    { body :: Maybe Json
+    { body :: Json
     , statusCode :: Int
     }
 
