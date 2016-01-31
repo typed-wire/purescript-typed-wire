@@ -2,7 +2,20 @@ module Data.TypedWire.Api where
 
 import Prelude
 import Data.Maybe
+import Data.Either
 import Data.Argonaut
+
+data ApiMethod
+  = DELETE
+  | GET
+  | HEAD
+  | OPTIONS
+  | PATCH
+  | POST
+  | PUT
+  | MOVE
+  | COPY
+  | CustomMethod String
 
 type ApiHeader =
     { key :: String
@@ -11,7 +24,7 @@ type ApiHeader =
 
 type ApiRequest req =
     { headers :: Array ApiHeader
-    , method :: String
+    , method :: ApiMethod
     , body :: Maybe Json
     , url :: String
     }
@@ -21,4 +34,4 @@ type ApiResponse resp =
     , statusCode :: Int
     }
 
-type ApiCall m req resp = (ApiRequest req -> m (ApiResponse resp)) -> m resp
+type ApiCall m req resp = (ApiRequest req -> m (ApiResponse resp)) -> m (Either String resp)
