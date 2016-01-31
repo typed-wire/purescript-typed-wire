@@ -4,6 +4,7 @@ module Data.TypedWire.Prelude
     , module Data.Argonaut
     , module Data.Argonaut.Encode
     , module Data.Argonaut.Decode
+    , module Data.Functor
     , module Data.Maybe
     , module Data.Array
     , (.??), eatBool
@@ -17,6 +18,7 @@ import Data.Argonaut
 import Data.Argonaut.Encode
 import Data.Argonaut.Decode
 import Data.Array
+import Data.Functor
 import Data.Maybe
 import Data.Date hiding (fromString)
 import qualified Data.Date as D
