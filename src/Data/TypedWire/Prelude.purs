@@ -1,5 +1,7 @@
 module Data.TypedWire.Prelude
-    ( module Data.Argonaut
+    ( module Prelude
+    , module Control.Alt
+    , module Data.Argonaut
     , module Data.Argonaut.Encode
     , module Data.Argonaut.Decode
     , module Data.Maybe
@@ -10,6 +12,7 @@ module Data.TypedWire.Prelude
     )
 where
 
+import Control.Alt
 import Data.Argonaut
 import Data.Argonaut.Encode
 import Data.Argonaut.Decode
