@@ -1,6 +1,7 @@
 module Data.TypedWire.Prelude
     ( module Prelude
     , module Control.Alt
+    , module Data.Generic
     , module Data.Argonaut
     , module Data.Argonaut.Encode
     , module Data.Argonaut.Decode
@@ -20,6 +21,7 @@ import Data.Argonaut.Decode
 import Data.Array
 import Data.Functor
 import Data.Maybe
+import Data.Generic
 import Data.Date hiding (fromString)
 import qualified Data.Date as D
 import Data.Date.UTC
@@ -33,6 +35,13 @@ import Prelude
 foreign import dateToISO :: JSDate -> String
 
 newtype AsBase64 = AsBase64 String
+derive instance genericAsBase64 :: Generic AsBase64
+
+instance showAsBase64 :: Show AsBase64 where
+    show = gShow
+
+instance eqAsBase64 :: Eq AsBase64 where
+    eq = gEq
 
 unAsBase64 :: AsBase64 -> String
 unAsBase64 (AsBase64 d) = d
