@@ -32,3 +32,18 @@ type ApiResponse resp =
     }
 
 type ApiCall m req resp = (ApiRequest req -> m (ApiResponse resp)) -> m (Either String resp)
+
+class PathPiece s where
+    toPathPiece :: s -> String
+
+instance stringPathPiece :: PathPiece String where
+    toPathPiece = id
+
+instance intPathPiece :: PathPiece Int where
+    toPathPiece = show
+
+instance numberPathPiece :: PathPiece Number where
+    toPathPiece = show
+
+instance boolPathPiece :: PathPiece Boolean where
+    toPathPiece = show
