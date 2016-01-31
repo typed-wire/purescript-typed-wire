@@ -1,0 +1,17 @@
+{
+  "name": "purescript-typed-wire",
+  "version": "1.0.0",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-argonaut": "~0.12.0",
+    "purescript-datetime": "~0.9.1"
+  }
+}
